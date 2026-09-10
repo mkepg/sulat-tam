@@ -126,7 +126,7 @@ endpoints, no framework — backed by MySQL 8, with MailHog standing in for a
 real SMTP provider in development. Every protected endpoint decodes a JWT
 from an httpOnly cookie set at login, and every query carrying user input
 runs through `mysqli` prepared statements. Two quirks are worth knowing:
-three `public_*` endpoints require the auth cookie despite their names, and
+four `public_*` endpoints require the auth cookie despite their names, and
 the admin `pending_articles` moderation queue is fully implemented but no
 endpoint currently writes to it, so it stays empty. Full request/response
 traces, sequence diagrams, and the data model live in
