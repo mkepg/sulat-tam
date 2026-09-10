@@ -46,7 +46,9 @@ services:
       # original hardcoded the now-dead alwaysdata host into the email body.
       APP_URL: http://localhost:8080
       # localhost:5173 -> localhost:8080 is same-site (ports are not part of a
-      # site), so Lax cookies are sent. Secure=false is required over plain HTTP.
+      # site), so Lax cookies are sent. Secure=false isn't strictly required —
+      # Chrome/Firefox trust localhost even over plain HTTP — but it removes
+      # the risk of a silently-dropped cookie causing cascading 401s.
       COOKIE_SECURE: "false"
       COOKIE_SAMESITE: Lax
       ALLOWED_ORIGINS: http://localhost:5173

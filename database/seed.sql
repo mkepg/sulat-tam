@@ -335,7 +335,7 @@ INSERT INTO article_tags (article_id, tag_id) VALUES
 (10, 7), (10, 2), (10, 1);
 
 -- =========================================================================
--- Comments (16, ~15) — always from a user other than the article's author.
+-- Comments (16) — always from a user other than the article's author.
 -- user_id 1=demo, 2=maria, 3=juan, 4=liza, 5=carlo
 -- =========================================================================
 INSERT INTO comments (article_id, user_id, body) VALUES

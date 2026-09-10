@@ -18,10 +18,9 @@ const EMAIL = 'demo@sulattam.local'
 const PASSWORD = 'DemoPass123!'
 
 // `channel: 'chromium'` pins this to the full Chrome-for-Testing build
-// (installed via the root `postinstall` script's `playwright install
-// chromium`, which fetches that same "chromium" channel — not Playwright's
-// separate default headless-shell build) rather than Playwright's default
-// headless shell target.
+// (installed via `npx playwright install chromium`, which fetches that same
+// "chromium" channel — not Playwright's separate default headless-shell
+// build) rather than Playwright's default headless shell target.
 let browser
 try {
   browser = await chromium.launch({ channel: 'chromium' })
@@ -29,8 +28,7 @@ try {
   if (/Executable doesn't exist/.test(err.message)) {
     console.error(
       '\nFAIL: Playwright\'s Chromium build is not installed.\n' +
-      'Run `npm install` (which provisions it via the `postinstall` script), ' +
-      'or `npx playwright install chromium` directly, then re-run `npm run verify:auth`.'
+      'Run `npx playwright install chromium`, then re-run `npm run verify:auth`.'
     )
   } else {
     console.error(`\nFAIL: could not launch the browser: ${err.message}`)

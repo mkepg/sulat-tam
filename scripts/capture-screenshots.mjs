@@ -35,8 +35,8 @@ function hashOf(page) {
 }
 
 // Same launch configuration as scripts/verify-auth.mjs (Chrome for Testing
-// via the "chromium" channel, provisioned by the root postinstall script),
-// so both scripts depend on the same browser build.
+// via the "chromium" channel, provisioned by `npx playwright install
+// chromium`), so both scripts depend on the same browser build.
 const browser = await chromium.launch({ channel: 'chromium' })
 const context = await browser.newContext({
   viewport: { width: 1440, height: 900 },

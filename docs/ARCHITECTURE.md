@@ -326,12 +326,17 @@ configuration, replacing what were previously per-file hardcoded values:
 - **Why the cookie flags are environment-driven:** the production defaults
   (`Secure=true`, `SameSite=None`) are required for a cross-site cookie over
   HTTPS. Local Docker Compose serves the frontend on `localhost:5173` and the
-  API on `localhost:8080` over plain HTTP — different ports, same site — so
-  a `Secure` cookie would be silently dropped by the browser, and
-  `SameSite=None` requires `Secure`. `docker-compose.yml` overrides both
-  (`COOKIE_SECURE: "false"`, `COOKIE_SAMESITE: Lax`) so the cookie survives
-  in that environment, while a real deployment leaves the production
-  defaults in place.
+  API on `localhost:8080` over plain HTTP — different ports, same site.
+  Chrome and Firefox both treat `http://localhost` as a potentially
+  trustworthy origin, so a `Secure` cookie is actually expected to work there
+  too — but the failure mode if that assumption is ever wrong is severe and
+  confusing (login returns HTTP 200 with a valid payload, the browser
+  silently discards the cookie, and every later request 401s), so the flags
+  are overridden anyway rather than betting on browser behaviour.
+  `docker-compose.yml` sets `COOKIE_SECURE: "false"` and
+  `COOKIE_SAMESITE: Lax` so the cookie survives in that environment
+  regardless, while a real deployment leaves the production defaults in
+  place.
 - **`APP_URL`** (also env-driven, default `http://localhost:8080`) supplies
   the base URL `auths/register.php` embeds in the verification email link —
   it must point at the API host, since `verify.php` is a backend endpoint,

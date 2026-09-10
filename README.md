@@ -105,6 +105,11 @@ SulatTam/
 └── .env.example           # documented environment variables
 ```
 
+The `scripts/` tooling drives a real browser via Playwright. It isn't needed
+to run the app, but if you do use it, run `npx playwright install chromium`
+once first — `scripts/verify-auth.mjs` will remind you with this exact
+command if you skip it.
+
 ## Configuration
 
 All runtime configuration is environment-driven — see
@@ -116,8 +121,9 @@ the optional `IMGBB_API_KEY` for profile-picture uploads.
 supplies development values for every variable directly through its
 `environment:` entries, and the backend's `.env` loader never overwrites a
 variable the real environment already provides. Copy `.env.example` to
-`.env` — and change `JWT_SECRET` in particular — only if you're running
-outside Docker or deploying for real.
+`backend/.env`, and `frontend/.env.example` to `frontend/.env` — and change
+`JWT_SECRET` in particular — only if you're running outside Docker or
+deploying for real.
 
 ## Architecture
 
