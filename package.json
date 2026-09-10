@@ -1,0 +1,13 @@
+{
+  "name": "sulattam-tooling",
+  "private": true,
+  "type": "module",
+  "description": "Repo-level tooling: auth verification and screenshot capture.",
+  "scripts": {
+    "verify:auth": "node scripts/verify-auth.mjs",
+    "screenshots": "node scripts/capture-screenshots.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
