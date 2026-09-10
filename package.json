@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Repo-level tooling: auth verification and screenshot capture.",
   "scripts": {
+    "postinstall": "playwright install chromium",
     "verify:auth": "node scripts/verify-auth.mjs",
     "screenshots": "node scripts/capture-screenshots.mjs"
   },
