@@ -17,7 +17,7 @@ export default function pageButtons(
     currentPage: number,
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>
 ) {
-    let buttons = [];
+    const buttons = [];
     for(let i = 1; i <= totalPage; i++){
         const isFirst = i === 1;
         const isActive = i === currentPage;

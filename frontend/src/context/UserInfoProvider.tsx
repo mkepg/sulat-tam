@@ -71,7 +71,7 @@ export function UserInfoProvider({ children }: { children: React.ReactNode }) {
                     setEmail(data.email ?? '');
                     setIsLogin(true);
                 }
-            } catch (error) {
+            } catch {
                 localStorage.removeItem('user');
                 setUserProfileUrl('');
                 setUsername('');

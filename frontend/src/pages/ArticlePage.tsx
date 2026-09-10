@@ -56,7 +56,7 @@ export default function ArticlePage() {
     const [comments, setComments] = useState<Comment[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [isFavorite, setIsFavorite] = useState<Boolean>(false);
+    const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const [favoritesCount, setFavoritesCount] = useState<number | null>(null);
     const [isFollow, setIsFollow] = useState(false);
     const [followersCount, setFollowersCount] = useState(0);

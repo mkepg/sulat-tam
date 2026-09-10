@@ -56,10 +56,11 @@ export default function SignIn() {
                 navigate('/login')
             }, 5000)
             
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error('Error submitting form:', error);
-            if (error.response.data['error']) {
-                setError(error.response.data['error']);
+            const axiosError = error as { response: { data: { error?: string } } };
+            if (axiosError.response.data['error']) {
+                setError(axiosError.response.data['error']);
             } else {
                 setError('An unexpected error occurred.');
             }

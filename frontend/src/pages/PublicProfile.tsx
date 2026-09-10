@@ -51,7 +51,7 @@ export default function PublicProfile() {
             );
             setIsFollow(response.data.following);
             setFollowersCount(response.data.followersCount);
-        } catch (error) {
+        } catch {
             console.error('Failed to fetch follow status...');
         }
     }
@@ -118,7 +118,7 @@ export default function PublicProfile() {
             setIsFollow(response.data.following);
             setFollowersCount(response.data.followersCount);
             setRefreshFeedArticles(prev => !prev);
-        } catch (error) {
+        } catch {
             console.error('Failed to toggle follow status...');
         }
     }

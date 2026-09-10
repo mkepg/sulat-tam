@@ -35,7 +35,7 @@ async function handleFavorites(
 
         if (setRefreshFavorites) setRefreshFavorites(prev => !prev);
 
-    } catch (err) {
+    } catch {
         console.error('Failed to update favorites...');
     }
 }

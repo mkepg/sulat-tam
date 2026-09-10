@@ -91,9 +91,10 @@ export default function Settings() {
                 navigate('/my-profile');
             }, 1000);
 
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error('Error submitting form:', error);
-            setError(error.response?.data?.error || 'An unexpected error occurred.');
+            const axiosError = error as { response?: { data?: { error?: string } } };
+            setError(axiosError.response?.data?.error || 'An unexpected error occurred.');
         }
     }
 
