@@ -1,5 +1,13 @@
 -- Demo content for SulatTam.
 --
+-- The mysql client that the official MySQL image uses to run files under
+-- docker-entrypoint-initdb.d/ does not otherwise know this file is UTF-8, so
+-- non-ASCII punctuation below (em dashes) would be read as Latin-1 and
+-- re-encoded on insert, corrupting into mojibake (e.g. "—" -> "â€"") even
+-- though the database itself is utf8mb4. Setting the session charset here
+-- fixes that at import time.
+SET NAMES utf8mb4;
+
 -- Demo login (used by the README, the Task 7 screenshot script, and the
 -- Task 6 auth-gate verification): demo@sulattam.local / DemoPass123!
 -- Every seeded user shares this same password so one credential opens any

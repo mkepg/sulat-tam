@@ -158,6 +158,52 @@
     line-height: 1.5;
     color: v.$text-color;
     margin-bottom: 50px;
+
+    // The global `* { margin: 0 }` reset (see index.css) strips spacing from
+    // every element react-markdown renders (headings, paragraphs, lists,
+    // code blocks). Restore just enough structure so markdown content reads
+    // as formatted text rather than a wall of unstyled tags.
+    > * + * {
+        margin-top: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.55rem; }
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.15rem; }
+
+    ul, ol {
+        padding-left: 1.4em;
+    }
+
+    li + li {
+        margin-top: 0.3em;
+    }
+
+    code {
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-size: 0.85em;
+        background: rgba(0, 0, 0, 0.06);
+        padding: 0.15em 0.4em;
+        border-radius: 4px;
+    }
+
+    pre {
+        background: rgba(0, 0, 0, 0.06);
+        padding: 14px 16px;
+        border-radius: 6px;
+        overflow-x: auto;
+
+        code {
+            background: none;
+            padding: 0;
+        }
+    }
 }
 
 .popularTagsList {

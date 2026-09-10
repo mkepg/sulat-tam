@@ -1,6 +1,7 @@
 import {    useEffect,    useState } from 'react';
 import {    useNavigate,    useParams } from 'react-router-dom';
 import axios from 'axios';
+import Markdown from 'react-markdown';
 
 import { useUserContext } from '../context/UserInfoProvider';
 import { useFavoriteArticlesContext } from '../context/ArticleInfoProvider';
@@ -256,7 +257,9 @@ export default function ArticlePage() {
                     <p></p>
                 ) : (
                     <>
-                        <p className={articleStyles.text}>{article.content}</p>
+                        <div className={articleStyles.text}>
+                            <Markdown>{article.content}</Markdown>
+                        </div>
 
                         {article.tags.length > 0 && (
                             <ul className={articleStyles.popularTagsList}>
