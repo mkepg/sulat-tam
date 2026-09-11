@@ -10,7 +10,10 @@ DROP TABLE IF EXISTS pending_article_tags;
 
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_profile_url VARCHAR(255) NOT NULL DEFAULT 'https://i.ibb.co/C34nFJXw/smiley-face.jpg',
+    -- Served locally from frontend/public/avatars/ rather than hot-linked from
+    -- an external image host, where one outage would blank every default
+    -- avatar at once.
+    user_profile_url VARCHAR(255) NOT NULL DEFAULT '/avatars/default.svg',
     username VARCHAR(50) NOT NULL UNIQUE,
     bio TEXT,
     email VARCHAR(100) NOT NULL UNIQUE,

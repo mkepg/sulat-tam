@@ -17,9 +17,9 @@ SET NAMES utf8mb4;
 -- =========================================================================
 -- Users (5) — first user is the demo admin account.
 -- =========================================================================
--- Avatars are served from frontend/public/avatars/ rather than the schema's
--- default, which hot-links an image from i.ibb.co: one external outage would
--- blank every avatar at once.
+-- Distinct avatars per user, served from frontend/public/avatars/. Users who
+-- register without uploading one fall back to the schema default, which is
+-- also served locally.
 INSERT INTO users (username, user_profile_url, bio, email, password, is_verified, is_admin) VALUES
 ('demo', '/avatars/demo.svg', 'Ang opisyal na demo account ng SulatTam. Ginagamit ko ito para subukan ang bawat feature — mula sa pag-post hanggang sa comments — bago ito makarating sa totoong users.', 'demo@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 1),
 ('maria_santos', '/avatars/maria_santos.svg', 'Full-stack developer mula Cebu. Mahilig magsulat tungkol sa PHP, MySQL, at kung paano ko natutunan ang web development nang autodidacta.', 'maria@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
