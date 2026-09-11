@@ -17,7 +17,11 @@ if ($secretKey === null || $secretKey === '') {
     exit;
 }
 
-// Production defaults. Docker overrides these for same-site HTTP on localhost,
-// where a Secure/SameSite=None cookie is silently dropped by the browser.
+// Production defaults, required for a cross-site cookie over HTTPS. Docker
+// overrides them for same-site plain HTTP on localhost: Chrome and Firefox do
+// treat localhost as a trustworthy origin, so Secure would likely work there
+// anyway, but the failure mode if it does not (login returns 200, the browser
+// silently discards the cookie, every later request 401s) is severe enough not
+// to bet on browser behaviour.
 $cookieSecure   = filter_var(env('COOKIE_SECURE', 'true'), FILTER_VALIDATE_BOOL);
 $cookieSameSite = env('COOKIE_SAMESITE', 'None');
