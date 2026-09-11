@@ -17,12 +17,15 @@ SET NAMES utf8mb4;
 -- =========================================================================
 -- Users (5) — first user is the demo admin account.
 -- =========================================================================
-INSERT INTO users (username, bio, email, password, is_verified, is_admin) VALUES
-('demo', 'Ang opisyal na demo account ng SulatTam. Ginagamit ko ito para subukan ang bawat feature — mula sa pag-post hanggang sa comments — bago ito makarating sa totoong users.', 'demo@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 1),
-('maria_santos', 'Full-stack developer mula Cebu. Mahilig magsulat tungkol sa PHP, MySQL, at kung paano ko natutunan ang web development nang autodidacta.', 'maria@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
-('juan_delacruz', 'Manunulat at dating guro ng Filipino sa hayskul. Naniniwala akong ang bawat kwento, kahit maikli, ay may dalang aral.', 'juan@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
-('liza_reyes', 'UI/UX designer na lumipat mula sa print design papuntang digital. Mahilig mag-share ng design principles na applicable kahit sa developers.', 'liza@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
-('carlo_mendoza', 'Freelance web developer, gumagawa ng React frontends at PHP backends para sa mga small business sa Pilipinas.', 'carlo@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0);
+-- Avatars are served from frontend/public/avatars/ rather than the schema's
+-- default, which hot-links an image from i.ibb.co: one external outage would
+-- blank every avatar at once.
+INSERT INTO users (username, user_profile_url, bio, email, password, is_verified, is_admin) VALUES
+('demo', '/avatars/demo.svg', 'Ang opisyal na demo account ng SulatTam. Ginagamit ko ito para subukan ang bawat feature — mula sa pag-post hanggang sa comments — bago ito makarating sa totoong users.', 'demo@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 1),
+('maria_santos', '/avatars/maria_santos.svg', 'Full-stack developer mula Cebu. Mahilig magsulat tungkol sa PHP, MySQL, at kung paano ko natutunan ang web development nang autodidacta.', 'maria@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
+('juan_delacruz', '/avatars/juan_delacruz.svg', 'Manunulat at dating guro ng Filipino sa hayskul. Naniniwala akong ang bawat kwento, kahit maikli, ay may dalang aral.', 'juan@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
+('liza_reyes', '/avatars/liza_reyes.svg', 'UI/UX designer na lumipat mula sa print design papuntang digital. Mahilig mag-share ng design principles na applicable kahit sa developers.', 'liza@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0),
+('carlo_mendoza', '/avatars/carlo_mendoza.svg', 'Freelance web developer, gumagawa ng React frontends at PHP backends para sa mga small business sa Pilipinas.', 'carlo@sulattam.local', '$2y$10$qu4vqjYPosIxZO6H9khnsuyYPnigP5BnFvItfeAKxARQsdCm5n7Se', 1, 0);
 
 -- =========================================================================
 -- Articles (10) — 2 per author. user_id 1..5 map to article_id 1..10 below,
