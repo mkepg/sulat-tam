@@ -1,16 +1,19 @@
 # SulatTam
 
-A full-stack blogging platform for Filipino-language writers — *sulat* is
-Filipino for "write". A React 19 SPA talks over JSON to a plain-PHP API
-backed by MySQL; the homepage hero's tagline is set in a Baybayin-inspired
+**A full-stack blogging platform for Filipino-language writers.**
+
+*Sulat* is Filipino for "write". A React 19 SPA talks over JSON to a plain-PHP
+API backed by MySQL; the homepage hero's tagline is set in a Baybayin-inspired
 display typeface (Malibata).
 
+[![CI](https://github.com/mkepg/sulat-tam/actions/workflows/ci.yml/badge.svg)](https://github.com/mkepg/sulat-tam/actions/workflows/ci.yml)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-[![CI](https://github.com/mkepg/sulat-tam/actions/workflows/ci.yml/badge.svg)](https://github.com/mkepg/sulat-tam/actions/workflows/ci.yml)
+
+---
 
 ## Screenshots
 
@@ -138,6 +141,13 @@ endpoint currently writes to it, so it stays empty. Full request/response
 traces, sequence diagrams, and the data model live in
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); all 28 endpoints are
 catalogued in [`docs/API.md`](docs/API.md).
+
+## Status
+
+Feature-complete and functional end to end — authentication, publishing,
+comments, follows, favorites, tags, and the admin review panel all work. Built
+as a portfolio project with a single maintainer, so there is no public instance
+running today; `docker compose up` brings the whole stack up locally.
 
 ## License
 
