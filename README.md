@@ -10,7 +10,7 @@ display typeface (Malibata).
 ![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-[![CI](https://github.com/mkepg/SulatTam/actions/workflows/ci.yml/badge.svg)](https://github.com/mkepg/SulatTam/actions/workflows/ci.yml)
+[![CI](https://github.com/mkepg/sulat-tam/actions/workflows/ci.yml/badge.svg)](https://github.com/mkepg/sulat-tam/actions/workflows/ci.yml)
 
 ## Screenshots
 
@@ -62,8 +62,8 @@ locally with one command.
 ## Quick start
 
 ```bash
-git clone https://github.com/mkepg/SulatTam.git
-cd SulatTam
+git clone https://github.com/mkepg/sulat-tam.git
+cd sulat-tam
 docker compose up
 ```
 
