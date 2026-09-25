@@ -36,5 +36,11 @@ lerna-debug.log*
 
 .VSCodeCounter/
 
-# Agent tooling scratch (ledgers, review packages) — never publish
+# Local assistant scaffolding. Kept on disk, never committed.
 .superpowers/
+.sdd/
+docs/superpowers/
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
